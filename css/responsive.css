@@ -1,0 +1,23 @@
+/* responsive.css */
+
+/* Tablets */
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .action-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+    #main-content {
+        padding: var(--spacing-xl);
+    }
+
+    .dashboard {
+        max-width: 900px;
+    }
+}
