@@ -1,1 +1,47 @@
+# ================================================
+# My Finance — .gitignore (Capacitor migration)
+# ================================================
+
+# Node tooling
+node_modules/
+npm-debug.log*
+
+# Generated web bundle for Capacitor's webDir — rebuilt every time via
+# `npm run www:build` (scripts/build-www.sh). Never hand-edit files here.
+/www/
+
+# Written into the source tree only transiently during
+# `npm run www:build` (so esbuild can resolve sqliteAdapter.js's
+# relative import of it) and deleted again when that script exits —
+# ignored here as a safety net in case a build is interrupted mid-way.
+/js/core/storage/schemaSql.generated.js
+
+# Native Android project — DECISION RESOLVED in Sprint 7 (see
+# laporan-capacitor.md): regenerated fresh via `npx cap add android` on
+# every CI run (debug and release workflows alike). Necessary
+# customizations (release signing config) are re-applied every time by
+# scripts/patch-android.sh rather than committed as hand-edits to a
+# generated file — see that script and scripts/android-signing.gradle.
+/android/
+/dist/
+/.version-sync.json
+
+# Build outputs
+*.apk
+*.aab
+android/app/build/
+android/build/
+android/.gradle/
+
+# Keystore — NEVER commit actual signing keys. Only documentation and
+# .gitignore live in keystore/ (see keystore/README.md, Sprint 7).
+keystore/*.jks
+keystore/*.keystore
+keystore/*.p12
+keystore/*password*
+keystore/*.properties
+
+# OS/editor cruft
+.DS_Store
+*.log
 .vibesync/
